@@ -7,29 +7,38 @@
   <title>Tickethack</title>
 </head>
 <body>
-  <nav class="nav">
-    <div class="nav-logo">
-      <a href="./index.html">Tickethack</a>
+  <div id="container">
+    <nav id="nav">
+      <div>
+        <a id="nav-logo" href="./index.html">Tickethack</a>
+      </div>
+      <div class="nav-links">
+        <ul>
+          <li><a href="./cart.html">Cart</a></li>
+          <li><a href="./bookings.html">Bookings</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="title">
+      <h1>Explore the world effortlessly by train!</h1>
+      <p>Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack.</p>
     </div>
-    <div class="nav-links">
-      <ul>
-        <li><a href="./cart.html">Cart</a></li>
-        <li><a href="./bookings.html">Bookings</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div>
-    <h1>Explore the world effortlessly by train!</h1>
-    <p>Compare, book and enjoy cheap prices for train tickets: your journey starts on Tickethack.</p>
-  </div>
-  <div>
-    <div id="left-container">
-      <input id="departure" type="text" placeholder="Departure">
-      <input id="arrival" type="text" placeholder="Arrival">
-      <input id="date" type="date" value="2025-04-15">
-    </div>
-    <div id="right-container">
-
+    <div id="content">
+      <div id="left-container">
+        <div id="trip-input">
+          <input id="departure" type="text" placeholder="Departure">
+          <input id="arrival" type="text" placeholder="Arrival">
+        </div>
+        <div id="date-input">
+          <input id="date" type="date" value="2025-04-15">
+        </div>
+        <button id="search-btn">Search</button>
+      </div>
+      <div id="right-container">
+        <img id="logo-img" src="./images/train.png" alt="logo train">
+        <div id="border"></div>
+        <p>It's time to book your future trip.</p>
+      </div>
     </div>
   </div>
   <script src="./javascript/script.js"></script>
