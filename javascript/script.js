@@ -16,7 +16,6 @@ searchBtn.addEventListener('click', function() {
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data)
     if (data.result === false) {
       rightContainer.innerHTML = `
       <img id="logo-img" src="./images/notfound.png" alt="logo loupe">
@@ -26,7 +25,7 @@ searchBtn.addEventListener('click', function() {
       rightContainer.innerHTML =''
       for (let i = 0; i< data.trips.length; i++) {
         rightContainer.innerHTML += `
-        <div class="trip-container">
+        <div class="trip-container" data-id=${data.trips[i]._id}>
           <span class="trip-info">${data.trips[i].arrival}</span>
           <span class="trip-info">${data.trips[i].departure}</span>
           <span class="trip-info">${data.trips[i].date}</span>
@@ -34,7 +33,21 @@ searchBtn.addEventListener('click', function() {
           <button class="book-btn">Book</button>
         </div>
         `
-      }  
+      } 
+      const bookBtns = document.querySelectorAll('.book-btn') 
+      for (const bookBtn of bookBtns) {
+        bookBtn.addEventListener('click', function() {
+          fetch('http://localhost:3000/carts', {
+            method: 'POST',
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify({
+              isPaid: false,
+              trips: this.id
+            })
+          })
+        })
+      }
     }
+
   })
 })
