@@ -24,12 +24,15 @@ searchBtn.addEventListener('click', function() {
     } else {
       rightContainer.innerHTML =''
       for (let i = 0; i< data.trips.length; i++) {
+        let formatDate = new Date(data.trips[i].date)
+        let hours = formatDate.getHours()
+        let minutes = formatDate.getMinutes()
         rightContainer.innerHTML += `
         <div class="trip-container" data-id=${data.trips[i]._id}>
+          <span class="trip-info">${data.trips[i].departure} ></span>
           <span class="trip-info">${data.trips[i].arrival}</span>
-          <span class="trip-info">${data.trips[i].departure}</span>
-          <span class="trip-info">${data.trips[i].date}</span>
-          <span class="trip-info">${data.trips[i].price}</span>
+          <span class="trip-info">${hours}:${minutes}</span>
+          <span class="trip-info">${data.trips[i].price}€</span>
           <button class="book-btn">Book</button>
         </div>
         `

@@ -83,6 +83,34 @@ ul {
   justify-content: center;
 }
 
+#right-container {
+  overflow-y: scroll;
+}
+
+.trip-container {
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+  background-color: rgb(226, 226, 226);
+  padding: 5px;
+  border-radius: 5px;
+  min-height: 30px;
+}
+
+.trip-info {
+  width: 100%;
+  display: flex;
+}
+
+.book-btn {
+  background-color: #4FAA91;
+  color: white;
+  border-radius: 5px;
+}
+
 #border {
   width: 180px;
   height: 5px;
