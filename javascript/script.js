@@ -48,7 +48,7 @@ searchBtn.addEventListener('click', function() {
           })
           .then(response => response.json())
           .then(data => {
-            window.location.assign('./cart.html')
+            window.location.assign('cart.html')
           })
         })
       }

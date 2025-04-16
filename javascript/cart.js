@@ -22,31 +22,26 @@ fetch("http://localhost:3000/carts/cart")
           <span class="cart-info">${data.cart[i].trips.arrival}>${data.cart[i].trips.departure}</span>
           <span class="cart-info">${hours}:${minutes}</span>
           <span class="cart-info">${data.cart[i].trips.price}€</span>
-          <button class="purchase-btn"><i class="fa-solid fa-xmark"></i></button>
+          <button class="delete-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
     `;
       }
       document.querySelector("#cart-container").innerHTML += `
       <div id="total-cart">
-        <span class= "total-price">price : price</span>
-        <button class= "purchase-btn">Purchase</span>
+        <span class="total-price">price : price</span>
+        <button class="purchase-btn">Purchase</button>
       </div>
       `;
-    }
-    const purchaseButtons = document.querySelectorAll(".purchase-btn");
-    for (const purchsaseButton of purchaseButtons) {
-      purchsaseButton.addEventListener("click", function () {
-        fetch("http://localhost:3000/carts/buy", {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            tripId: this.id,
+      const purchaseButton = document.querySelector(".purchase-btn");
+      console.log(purchaseButton)
+      purchaseButton.addEventListener("click", function() {
+          fetch("http://localhost:3000/carts/buy", {
+            method: "PUT",
           })
-        })
-        .then(response => response.json())
-        .then(data => {
-          window.location.assign('./bookings.html')
-        })
-      })    
+          .then(response => response.json())
+          .then(data => {
+            window.location.assign('bookings.html')
+          })
+        })    
     }
   });
