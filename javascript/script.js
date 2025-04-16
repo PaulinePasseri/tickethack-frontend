@@ -44,9 +44,13 @@ searchBtn.addEventListener('click', function() {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify({
-              isPaid: false,
               trips: this.id
             })
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            window.location.assign('./cart.html')
           })
         })
       }

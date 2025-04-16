@@ -58,6 +58,10 @@ ul {
   justify-content: center;
 }
 
+#title p {
+  margin-top: 15px;
+}
+
 /* Content */
 
 #content {
@@ -109,6 +113,8 @@ ul {
   background-color: #4FAA91;
   color: white;
   border-radius: 5px;
+  cursor: pointer;
+  min-height: 25px;
 }
 
 #border {
