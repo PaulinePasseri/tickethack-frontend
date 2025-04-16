@@ -1,4 +1,4 @@
-fetch("https://tickethack-backend-341j.vercel.app/carts/cart")
+fetch("https://tickethack-backend-ivory-ten.vercel.app/carts/cart")
   .then((response) => response.json())
   .then((data) => {
     if (data.result === true) {
@@ -34,7 +34,7 @@ fetch("https://tickethack-backend-341j.vercel.app/carts/cart")
       `;
       const purchaseButton = document.querySelector(".purchase-btn");
       purchaseButton.addEventListener("click", function() {
-          fetch("https://tickethack-backend-341j.vercel.app/carts/buy", {
+          fetch("https://tickethack-backend-ivory-ten.vercel.app/carts/buy", {
             method: "PUT",
           })
           .then(response => response.json())
@@ -53,7 +53,7 @@ fetch("https://tickethack-backend-341j.vercel.app/carts/cart")
         const deleteBtns = document.querySelectorAll('.delete-btn') 
         for (const deleteBtn of deleteBtns) {
           deleteBtn.addEventListener('click', function() {
-            fetch('https://tickethack-backend-341j.vercel.app/carts', {
+            fetch('https://tickethack-backend-ivory-ten.vercel.app/carts', {
               method: 'DELETE',
               headers: { 'Content-Type' : 'application/json' },
               body: JSON.stringify({
