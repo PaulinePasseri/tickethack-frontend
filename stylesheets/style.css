@@ -2,7 +2,7 @@
 
 * {
   margin: 0;
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   list-style: none;
   text-decoration: none;
   color: inherit;
@@ -85,14 +85,15 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 #right-container {
   overflow-y: scroll;
 }
 
-.trip-container {
-  font-size: 14px;
+.trip-container, .cart {
+  font-size: 13px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -104,12 +105,13 @@ ul {
   min-height: 30px;
 }
 
-.trip-info {
-  width: 100%;
+.trip-info, .cart-info {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.book-btn {
+.book-btn, .delete-btn, .purchase-btn {
   background-color: #4FAA91;
   color: white;
   border-radius: 5px;
@@ -217,6 +219,37 @@ ul {
   padding-bottom: 10px;
 }
 
+.booking-info, #content-cart {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px 70px;
+  min-width: 600px;
+}
 
+.booking-info .text-booking {
+  color: #4FAA91;
+}
 
+#bookings, #cart-list {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 13px;
+}
 
+.border-booking {
+  width: 170px;
+  border-bottom: 2px solid #4FAA91;
+  margin-bottom: 20px;
+}
+
+#total-cart {
+  background-color: rgb(11, 11, 69);
+  color: white;
+  width: 100%;
+}
