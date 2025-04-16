@@ -29,7 +29,7 @@ fetch("http://localhost:3000/carts/cart")
       document.querySelector("#cart-container").innerHTML += `
       <div id="total-cart">
         <span class= "total-price">price : price</span>
-        <button id=${data.cart[i]._id} class= "purchase-btn">Purchase</span>
+        <button class= "purchase-btn">Purchase</span>
       </div>
       `;
     }
@@ -41,8 +41,12 @@ fetch("http://localhost:3000/carts/cart")
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             tripId: this.id,
-          }),
+          })
         });
-      });
+      })
+      then(response => response.json())
+          .then(data => {
+            window.location.assign('./bookings.html')
+      } ) 
     }
   });
