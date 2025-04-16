@@ -92,7 +92,7 @@ ul {
   overflow-y: scroll;
 }
 
-.trip-container {
+.trip-container, .cart {
   font-size: 13px;
   width: 100%;
   display: flex;
@@ -105,12 +105,13 @@ ul {
   min-height: 30px;
 }
 
-.trip-info {
-  width: 100%;
+.trip-info, .cart-info {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.book-btn {
+.book-btn, .delete-btn, .purchase-btn {
   background-color: #4FAA91;
   color: white;
   border-radius: 5px;
@@ -218,7 +219,7 @@ ul {
   padding-bottom: 10px;
 }
 
-.booking-info {
+.booking-info, #content-cart {
   font-size: 13px;
   display: flex;
   flex-direction: column;
@@ -234,7 +235,7 @@ ul {
   color: #4FAA91;
 }
 
-#bookings {
+#bookings, #cart-list {
   display: flex;
   width: 100%;
   margin: 20px 0;
@@ -245,4 +246,10 @@ ul {
   width: 170px;
   border-bottom: 2px solid #4FAA91;
   margin-bottom: 20px;
+}
+
+#total-cart {
+  background-color: rgb(11, 11, 69);
+  color: white;
+  width: 100%;
 }

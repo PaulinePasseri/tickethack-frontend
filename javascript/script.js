@@ -29,8 +29,7 @@ searchBtn.addEventListener('click', function() {
         let minutes = formatDate.getMinutes()
         rightContainer.innerHTML += `
         <div class="trip-container">
-          <span class="trip-info">${data.trips[i].departure} ></span>
-          <span class="trip-info">${data.trips[i].arrival}</span>
+          <span class="trip-info">${data.trips[i].departure} > ${data.trips[i].arrival}</span>
           <span class="trip-info">${hours}:${minutes}</span>
           <span class="trip-info">${data.trips[i].price}€</span>
           <button id=${data.trips[i]._id} class="book-btn">Book</button>
