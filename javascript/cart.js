@@ -25,17 +25,17 @@ fetch("http://localhost:3000/carts/cart")
           <button class="purchase-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
     `;
-        document.querySelector("#cart-container").innerHTML += `
-          <div id="total-cart">
-            <span class= "total-price">price : price</span>
-            <button id=${data.cart[i]._id} class= "purchase-btn">Purchase</span>
-          </div>
-          `;
       }
+      document.querySelector("#cart-container").innerHTML += `
+      <div id="total-cart">
+        <span class= "total-price">price : price</span>
+        <button id=${data.cart[i]._id} class= "purchase-btn">Purchase</span>
+      </div>
+      `;
     }
-    document
-      .querySelector(".purchase-btn")
-      .addEventListener("click", function () {
+    const purchaseButtons = document.querySelectorAll(".purchase-btn");
+    for (const purchsaseButton of purchaseButtons) {
+      purchsaseButton.addEventListener("click", function () {
         fetch("http://localhost:3000/carts/buy", {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -44,5 +44,5 @@ fetch("http://localhost:3000/carts/cart")
           }),
         });
       });
+    }
   });
-i;
