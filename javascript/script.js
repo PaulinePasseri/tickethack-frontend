@@ -28,12 +28,12 @@ searchBtn.addEventListener('click', function() {
         let hours = formatDate.getHours()
         let minutes = formatDate.getMinutes()
         rightContainer.innerHTML += `
-        <div class="trip-container" data-id=${data.trips[i]._id}>
+        <div class="trip-container">
           <span class="trip-info">${data.trips[i].departure} ></span>
           <span class="trip-info">${data.trips[i].arrival}</span>
           <span class="trip-info">${hours}:${minutes}</span>
           <span class="trip-info">${data.trips[i].price}€</span>
-          <button class="book-btn">Book</button>
+          <button id=${data.trips[i]._id} class="book-btn">Book</button>
         </div>
         `
       } 
@@ -44,12 +44,11 @@ searchBtn.addEventListener('click', function() {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify({
-              trips: this.id
+              tripId: this.id
             })
           })
           .then(response => response.json())
           .then(data => {
-            console.log(data)
             window.location.assign('./cart.html')
           })
         })
