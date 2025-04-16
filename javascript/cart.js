@@ -25,7 +25,7 @@ fetch("http://localhost:3000/carts/cart")
           <button class="purchase-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
     `;
-        document.querySelector("#content-cart").innerHTML += `
+        document.querySelector("#cart-container").innerHTML += `
           <div id="total-cart">
             <span class= "total-price">price : price</span>
             <button id=${data.cart[i]._id} class= "purchase-btn">Purchase</span>
