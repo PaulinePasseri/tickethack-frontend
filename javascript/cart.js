@@ -42,11 +42,11 @@ fetch("http://localhost:3000/carts/cart")
           body: JSON.stringify({
             tripId: this.id,
           })
-        });
-      })
-      then(response => response.json())
-          .then(data => {
-            window.location.assign('./bookings.html')
-      } ) 
+        })
+        .then(response => response.json())
+        .then(data => {
+          window.location.assign('./bookings.html')
+        })
+      })    
     }
   });
