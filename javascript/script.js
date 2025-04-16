@@ -5,7 +5,7 @@ const departure = document.querySelector('#departure')
 const date = document.querySelector('#date')
 
 searchBtn.addEventListener('click', function() {
-  fetch('https://tickethack-backend-ivory-ten.vercel.app/trips', {
+  fetch('http://localhost:3000/trips', {
     method: 'POST',
     headers: { 'Content-Type' : 'application/json' },
     body: JSON.stringify({
@@ -39,7 +39,7 @@ searchBtn.addEventListener('click', function() {
       const bookBtns = document.querySelectorAll('.book-btn') 
       for (const bookBtn of bookBtns) {
         bookBtn.addEventListener('click', function() {
-          fetch('https://tickethack-backend-ivory-ten.vercel.app/carts', {
+          fetch('http://localhost:3000/carts', {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
             body: JSON.stringify({

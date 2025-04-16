@@ -1,4 +1,4 @@
-fetch("https://tickethack-backend-ivory-ten.vercel.app/carts/cart")
+fetch("http://localhost:3000/carts/cart")
   .then((response) => response.json())
   .then((data) => {
     if (data.result === true) {
@@ -34,26 +34,32 @@ fetch("https://tickethack-backend-ivory-ten.vercel.app/carts/cart")
       `;
       const purchaseButton = document.querySelector(".purchase-btn");
       purchaseButton.addEventListener("click", function() {
-          fetch("https://tickethack-backend-ivory-ten.vercel.app/carts/buy", {
+          fetch("http://localhost:3000/carts/buy", {
             method: "PUT",
           })
           .then(response => response.json())
           .then(data => {
             window.location.assign('bookings.html')
+            document.querySelector("#cart-container").innerHTML =
+            `<div class="text">
+              <p>
+                <span class="text2">No tickets in your cart.</span
+                ><span class="text2">Why no plan a trip?</span>
+              </p>
+            </div>
+            `
           })
-        document.querySelector("#cart-container").innerHTML =
-        `<div class="text">
-          <p>
-            <span class="text2">No tickets in your cart.</span
-            ><span class="text2">Why no plan a trip?</span>
-          </p>
-        </div>
-        `
+          fetch('http://localhost:3000/carts/cancel', {
+            method: 'PUT'
+          }).then(response => response.json())
+          .then(data => {
+            console.log(data)
+          })
         }) 
         const deleteBtns = document.querySelectorAll('.delete-btn') 
         for (const deleteBtn of deleteBtns) {
           deleteBtn.addEventListener('click', function() {
-            fetch('https://tickethack-backend-ivory-ten.vercel.app/carts', {
+            fetch('http://localhost:3000/carts', {
               method: 'DELETE',
               headers: { 'Content-Type' : 'application/json' },
               body: JSON.stringify({
