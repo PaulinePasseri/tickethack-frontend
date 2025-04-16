@@ -1,7 +1,7 @@
 fetch("http://localhost:3000/carts/cart")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data)
+    console.log(data.trips)
     if ((data.result === true)) {
       for (let i = 0; i< data.cart.length; i++){
         document.querySelector("#cart-container").innerHTML = `
