@@ -255,9 +255,16 @@ ul {
   width: 600px;
   padding: 10px 70px;
   border-radius: 0 0 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #cart-list {
   display: flex;
   flex-direction: column;
+}
+
+.cart-info {
+  min-width: 100px;
 }

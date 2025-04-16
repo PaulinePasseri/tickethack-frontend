@@ -22,11 +22,11 @@ fetch('http://localhost:3000/carts/book')
     let currentHour = currentDate.getHours()
     let timeLeft = hours - currentHour
     bookings.innerHTML += `
-    <div class="trip-container">
-      <span class="trip-info">${data.cart[i].trips.departure} > ${data.cart[i].trips.arrival}</span>
-      <span class="trip-info">${hours}:${minutes}</span>
-      <span class="trip-info">${data.cart[i].trips.price}€</span>
-      <span class="trip-info">Departure in ${timeLeft} hours</span>
+    <div class="cart">
+      <span class="cart-info">${data.cart[i].trips.departure} > ${data.cart[i].trips.arrival}</span>
+      <span class="cart-info">${hours}:${minutes}</span>
+      <span class="cart-info">${data.cart[i].trips.price}€</span>
+      <span class="cart-info">Departure in ${timeLeft} hours</span>
     </div>`
   }
 })
