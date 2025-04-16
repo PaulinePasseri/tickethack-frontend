@@ -3,11 +3,30 @@ const bookingContainer = document.querySelector('#booking-container')
 fetch('http://localhost:3000/carts/book')
 .then(response => response.json())
 .then(data => {
+  console.log(data)
   if (data.result === true) {
     bookingContainer.innerHTML = `
-    <h2>My Bookings</h2>
-    <div id="bookings"></div>
-    <div class="border"></div>
-    <p>Enjoy your travels with Tickethack!</p>`
+    <div class="booking-info">
+      <p>My Bookings</p>
+      <div id="bookings"></div>
+      <div class="border-booking"></div>
+      <p class="text-booking">Enjoy your travels with Tickethack!</p>
+    </div>`
+  }
+  const bookings = document.querySelector('#bookings')
+  for (let i = 0; i < data.cart.length; i++) {
+    let formatDate = new Date(data.cart[i].trips.date)
+    let hours = formatDate.getHours()
+    let minutes = formatDate.getMinutes()
+    let currentDate = new Date()
+    let currentHour = currentDate.getHours()
+    let timeLeft = hours - currentHour
+    bookings.innerHTML += `
+    <div class="trip-container">
+      <span class="trip-info">${data.cart[i].trips.departure} > ${data.cart[i].trips.arrival}</span>
+      <span class="trip-info">${hours}:${minutes}</span>
+      <span class="trip-info">${data.cart[i].trips.price}€</span>
+      <span class="trip-info">Departure in ${timeLeft} hours</span>
+    </div>`
   }
 })

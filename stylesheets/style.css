@@ -2,7 +2,7 @@
 
 * {
   margin: 0;
-  font-family: 'Open-Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   list-style: none;
   text-decoration: none;
   color: inherit;
@@ -85,6 +85,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 #right-container {
@@ -92,7 +93,7 @@ ul {
 }
 
 .trip-container {
-  font-size: 14px;
+  font-size: 13px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -217,6 +218,31 @@ ul {
   padding-bottom: 10px;
 }
 
+.booking-info {
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 5px;
+  padding: 30px 70px;
+  min-width: 600px;
+}
 
+.booking-info .text-booking {
+  color: #4FAA91;
+}
 
+#bookings {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  font-size: 13px;
+}
 
+.border-booking {
+  width: 170px;
+  border-bottom: 2px solid #4FAA91;
+  margin-bottom: 20px;
+}
