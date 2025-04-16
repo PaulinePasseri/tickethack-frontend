@@ -5,15 +5,14 @@ fetch("http://localhost:3000/carts/cart")
       document.querySelector("#cart-container").innerHTML = `
         <div id="content-cart">
           <div id="fixed-content-cart">
-          <p>My cart</p>
+            <p>My cart</p>
           </div>
-          <div id="cart-list">
-          </div>
+          <div id="cart-list"></div>
         </div> 
       `;
 
+      let total = 0
       for (let i = 0; i < data.cart.length; i++) {
-        //console.log(data.cart[i].trips.arrival)
         const formatDate = new Date(data.cart[i].trips.date);
         let hours = formatDate.getHours();
         let minutes = formatDate.getMinutes();
@@ -24,16 +23,16 @@ fetch("http://localhost:3000/carts/cart")
           <span class="cart-info">${data.cart[i].trips.price}€</span>
           <button class="delete-btn" id=${data.cart[i].trips._id}><i class="fa-solid fa-xmark"></i></button>
         </div>
-    `;
+        `;
+        total += data.cart[i].trips.price
       }
       document.querySelector("#cart-container").innerHTML += `
       <div id="total-cart">
-        <span class="total-price">price : price</span>
+        <span class="total-price">Total : ${total}</span>
         <button class="purchase-btn">Purchase</button>
       </div>
       `;
       const purchaseButton = document.querySelector(".purchase-btn");
-      console.log(purchaseButton)
       purchaseButton.addEventListener("click", function() {
           fetch("http://localhost:3000/carts/buy", {
             method: "PUT",
@@ -63,8 +62,14 @@ fetch("http://localhost:3000/carts/cart")
             })
             .then(response => response.json())
             .then(data => {
-              console.log(data)
+              total = 0
+              for (let i = 0; i < data.cart.length; i++) {
+                total += data.cart[i].trips.price
+              }
+              document.querySelector('.total-price').textContent = `Total : ${total}`
+              this.parentNode.remove()
             })
+        
           })
         }     
     }
