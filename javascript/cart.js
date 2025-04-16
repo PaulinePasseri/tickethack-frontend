@@ -22,7 +22,7 @@ fetch("http://localhost:3000/carts/cart")
           <span class="cart-info">${data.cart[i].trips.arrival}>${data.cart[i].trips.departure}</span>
           <span class="cart-info">${hours}:${minutes}</span>
           <span class="cart-info">${data.cart[i].trips.price}€</span>
-          <button class="delete-btn"><i class="fa-solid fa-xmark"></i></button>
+          <button class="delete-btn" id=${data.cart[i].trips._id}><i class="fa-solid fa-xmark"></i></button>
         </div>
     `;
       }
@@ -42,6 +42,30 @@ fetch("http://localhost:3000/carts/cart")
           .then(data => {
             window.location.assign('bookings.html')
           })
-        })    
+        document.querySelector("#cart-container").innerHTML =
+        `<div class="text">
+          <p>
+            <span class="text2">No tickets in your cart.</span
+            ><span class="text2">Why no plan a trip?</span>
+          </p>
+        </div>
+        `
+        }) 
+        const deleteBtns = document.querySelectorAll('.delete-btn') 
+        for (const deleteBtn of deleteBtns) {
+          deleteBtn.addEventListener('click', function() {
+            fetch('http://localhost:3000/carts', {
+              method: 'DELETE',
+              headers: { 'Content-Type' : 'application/json' },
+              body: JSON.stringify({
+                tripId: this.id
+              })
+            })
+            .then(response => response.json())
+            .then(data => {
+              console.log(data)
+            })
+          })
+        }     
     }
   });
