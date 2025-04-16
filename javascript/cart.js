@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/carts/cart")
+fetch("https://tickethack-backend-inky.vercel.app/carts/cart")
   .then((response) => response.json())
   .then((data) => {
     if (data.result === true) {
@@ -34,7 +34,7 @@ fetch("http://localhost:3000/carts/cart")
       `;
       const purchaseButton = document.querySelector(".purchase-btn");
       purchaseButton.addEventListener("click", function() {
-          fetch("http://localhost:3000/carts/buy", {
+          fetch("https://tickethack-backend-inky.vercel.app/carts/buy", {
             method: "PUT",
           })
           .then(response => response.json())
@@ -49,7 +49,7 @@ fetch("http://localhost:3000/carts/cart")
             </div>
             `
           })
-          fetch('http://localhost:3000/carts/cancel', {
+          fetch('https://tickethack-backend-inky.vercel.app/carts/cancel', {
             method: 'PUT'
           }).then(response => response.json())
           .then(data => {
@@ -59,7 +59,7 @@ fetch("http://localhost:3000/carts/cart")
         const deleteBtns = document.querySelectorAll('.delete-btn') 
         for (const deleteBtn of deleteBtns) {
           deleteBtn.addEventListener('click', function() {
-            fetch('http://localhost:3000/carts', {
+            fetch('https://tickethack-backend-inky.vercel.app/carts', {
               method: 'DELETE',
               headers: { 'Content-Type' : 'application/json' },
               body: JSON.stringify({

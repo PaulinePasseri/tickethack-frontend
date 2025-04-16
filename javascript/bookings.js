@@ -1,6 +1,6 @@
 const bookingContainer = document.querySelector('#booking-container')
 
-fetch('http://localhost:3000/carts/book')
+fetch('https://tickethack-backend-inky.vercel.app/carts/book')
 .then(response => response.json())
 .then(data => {
   console.log(data)
